@@ -1,3 +1,5 @@
+package base;
+
 import com.microsoft.playwright.*;
 import utils.ConfigReader;
 
@@ -30,12 +32,18 @@ public class PlaywrightFactory {
         context.set(browser.get().newContext(new Browser.NewContextOptions().setViewportSize(1920,1080)));
         page.set(context.get().newPage());
     }
+
+    public static Page getPage(){
+        return page.get();
+    }
     public static void clear(){
         context.get().close();
         browser.get().close();
         playwright.get().close();
 
         page.remove();
-        
+        context.remove();
+        browser.remove();
+        playwright.remove();
     }
 }

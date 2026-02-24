@@ -4,12 +4,11 @@ import base.BaseTest;
 import base.PlaywrightFactory;
 import org.testng.annotations.Test;
 import pages.CartPage;
-import pages.CheckOutPage;
 import pages.InventoryPage;
 import pages.LoginPage;
 import utils.RetryAnalyzer;
 
-public class LoginTest extends BaseTest {
+public class CheckOutPage extends BaseTest {
 
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void validLoginTest() {
@@ -23,7 +22,7 @@ public class LoginTest extends BaseTest {
         CartPage cartPage = new CartPage(
                 PlaywrightFactory.getPage());
 
-        CheckOutPage checkoutPage = new CheckOutPage(
+        pages.CheckOutPage checkoutPage = new pages.CheckOutPage(
                 PlaywrightFactory.getPage());
 
         loginPage.login("standard_user", "secret_sauce");
